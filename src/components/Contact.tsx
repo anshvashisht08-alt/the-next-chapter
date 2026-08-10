@@ -5,203 +5,407 @@ import {
   MessageCircle,
   LinkIcon,
   MapPin,
+  ArrowUpRight,
   Sparkles,
 } from "lucide-react";
 
 export default function Contact() {
   return (
-    <section
-      id="contact"
-      className="relative overflow-hidden bg-slate-950 py-28"
-    >
-      {/* Background Glow */}
-      <div className="absolute inset-0">
-        <div className="absolute left-0 top-0 h-72 w-72 rounded-full bg-cyan-500/10 blur-[120px]" />
-        <div className="absolute bottom-0 right-0 h-72 w-72 rounded-full bg-purple-500/10 blur-[120px]" />
+    <section className="page-aurora relative min-h-screen overflow-hidden bg-gradient-to-br from-sky-50 via-white to-pink-50 py-20">
+
+      {/* ================= ANIMATED BACKGROUND ================= */}
+
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+
+        {/* Blue left glow */}
+        <motion.div
+          animate={{
+            x: [0, 35, -15, 0],
+            y: [0, -25, 20, 0],
+            scale: [1, 1.08, 0.96, 1],
+          }}
+          transition={{
+            duration: 12,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute -left-40 top-20 h-[420px] w-[420px] rounded-full bg-blue-300/25 blur-[110px]"
+        />
+
+        {/* Cyan middle glow */}
+        <motion.div
+          animate={{
+            x: [0, -30, 20, 0],
+            y: [0, 30, -15, 0],
+            scale: [1, 0.95, 1.08, 1],
+          }}
+          transition={{
+            duration: 15,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute left-[25%] top-[35%] h-[300px] w-[300px] rounded-full bg-cyan-300/20 blur-[100px]"
+        />
+
+        {/* Pink right glow */}
+        <motion.div
+          animate={{
+            x: [0, -35, 15, 0],
+            y: [0, 20, -25, 0],
+            scale: [1, 1.1, 0.94, 1],
+          }}
+          transition={{
+            duration: 14,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute -right-40 top-10 h-[450px] w-[450px] rounded-full bg-pink-300/25 blur-[115px]"
+        />
+
+        {/* Purple bottom glow */}
+        <motion.div
+          animate={{
+            x: [0, 25, -20, 0],
+            y: [0, -20, 25, 0],
+          }}
+          transition={{
+            duration: 16,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute bottom-[-150px] left-1/2 h-[380px] w-[380px] -translate-x-1/2 rounded-full bg-purple-300/15 blur-[110px]"
+        />
+
+        {/* Floating dots */}
+
+        <motion.div
+          animate={{ y: [0, -18, 0] }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute left-[12%] top-[22%] h-3 w-3 rounded-full bg-blue-400/50"
+        />
+
+        <motion.div
+          animate={{ y: [0, 20, 0] }}
+          transition={{
+            duration: 5,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute right-[15%] top-[30%] h-4 w-4 rounded-full bg-pink-400/40"
+        />
+
+        <motion.div
+          animate={{ y: [0, -15, 0] }}
+          transition={{
+            duration: 4.5,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute bottom-[25%] left-[8%] h-2 w-2 rounded-full bg-violet-400/50"
+        />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-7xl px-6">
-        {/* Header */}
+      {/* ================= CONTENT ================= */}
+
+      <div className="relative z-10 mx-auto max-w-6xl px-6">
+
+        {/* ================= HEADING ================= */}
+
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="text-center"
+          className="mx-auto max-w-3xl text-center"
         >
-          <div className="inline-flex items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-400/10 px-5 py-2 backdrop-blur-xl">
-            <Sparkles className="h-4 w-4 text-cyan-400" />
-            <span className="text-sm font-semibold tracking-wider text-cyan-300">
-              CONTACT US
-            </span>
-          </div>
 
-          <h2 className="mt-8 text-4xl font-black text-white md:text-6xl">
-            Let's Build The{" "}
-            <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+          <motion.div
+            animate={{ y: [0, -4, 0] }}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="mx-auto inline-flex items-center gap-2 rounded-full border border-blue-200/70 bg-white/70 px-5 py-2 text-sm font-semibold text-blue-600 shadow-lg shadow-blue-500/10 backdrop-blur-xl"
+          >
+            <Sparkles className="h-4 w-4" />
+            LET&apos;S CONNECT
+          </motion.div>
+
+          <h2 className="mt-7 text-4xl font-black tracking-tight text-slate-900 md:text-6xl">
+            Let&apos;s build the
+            <span className="block bg-gradient-to-r from-blue-600 via-purple-600 to-pink-500 bg-clip-text text-transparent">
               Next Chapter
             </span>
           </h2>
 
-          <p className="mx-auto mt-8 max-w-3xl text-lg leading-8 text-slate-300">
-            Whether you're looking to learn, collaborate, build amazing
-            projects, prepare for hackathons, or discover exciting
-            opportunities, our community is always open for passionate
-            students.
+          <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-slate-600 md:text-lg">
+            Have a question, idea, suggestion or want to be part of the
+            community? We&apos;d love to hear from you.
           </p>
         </motion.div>
 
-        {/* Contact Cards Grid */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2 }}
-          className="mt-20 grid gap-8 lg:grid-cols-2"
-        >
-          {/* Left Card */}
+        {/* ================= CONTACT CARDS ================= */}
+
+        <div className="mt-14 grid gap-6 md:grid-cols-2">
+
+          {/* COMMUNITY CARD */}
+
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="rounded-3xl border border-white/10 bg-white/5 p-10 backdrop-blur-2xl"
+            animate={{ y: [0, -4, 0] }}
+            whileHover={{
+              y: -8,
+              scale: 1.015,
+            }}
+            className="group relative overflow-hidden rounded-[30px] border border-white/70 bg-white/65 p-7 shadow-[0_20px_60px_rgba(15,23,42,0.08)] backdrop-blur-xl md:p-9"
           >
-            <h3 className="text-3xl font-bold text-white">
-              Become a Part of Our Journey 🚀
-            </h3>
 
-            <p className="mt-6 leading-8 text-slate-300">
-              The Next Chapter is more than just a student community.
-              It's a place where students collaborate, solve doubts,
-              discover internships, participate in hackathons, build
-              innovative projects and grow together.
-            </p>
+            {/* Card glow */}
+            <div className="pointer-events-none absolute -right-20 -top-20 h-48 w-48 rounded-full bg-green-300/20 blur-[70px]" />
 
-            <p className="mt-6 leading-8 text-slate-300">
-              Join today and become one of the founding members helping
-              shape the future of our community.
-            </p>
+            <div className="relative z-10">
 
-            <div className="mt-10 flex flex-wrap gap-4">
+              <div className="flex items-start gap-5">
+
+                <motion.div
+                  animate={{
+                    rotate: [0, 3, -3, 0],
+                    y: [0, -3, 0],
+                  }}
+                  transition={{
+                    duration: 4,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                  className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-green-50 text-green-600 shadow-sm"
+                >
+                  <MessageCircle className="h-7 w-7" />
+                </motion.div>
+
+                <div>
+                  <h3 className="text-xl font-bold text-slate-900">
+                    Join the Community
+                  </h3>
+
+                  <p className="mt-2 leading-7 text-slate-600">
+                    Connect with fellow students, ask doubts, share ideas and
+                    grow together.
+                  </p>
+                </div>
+
+              </div>
+
               <motion.a
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.96 }}
-                href="https://chat.whatsapp.com/LrbdpXMaG3j67zSZUizjzI"
+                whileHover={{
+                  scale: 1.04,
+                  y: -2,
+                }}
+                whileTap={{ scale: 0.97 }}
+                href="https://chat.whatsapp.com/LrbdpXMaG3j67zSSUzijzI"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-green-500 to-emerald-600 px-6 py-3 font-bold text-white shadow-lg shadow-green-500/30"
+                className="mt-7 inline-flex items-center gap-2 rounded-full bg-green-500 px-6 py-3 font-semibold text-white shadow-lg shadow-green-200/60 transition hover:bg-green-600"
               >
-                <MessageCircle className="h-5 w-5" />
                 Join WhatsApp
+                <ArrowUpRight className="h-4 w-4" />
               </motion.a>
 
-              <motion.a
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.96 }}
-                href="https://linkedin.com/in/ansh-sharma-2754b4348"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 rounded-full border border-cyan-400/30 bg-cyan-500/10 px-6 py-3 font-bold text-cyan-300 backdrop-blur-xl"
-              >
-                <LinkIcon className="h-5 w-5" />
-                Connect with Founder
-              </motion.a>
             </div>
           </motion.div>
 
-          {/* Right Card */}
+          {/* FOUNDER CARD */}
+
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="rounded-3xl border border-white/10 bg-white/5 p-10 backdrop-blur-2xl"
+            transition={{ duration: 0.7, delay: 0.1 }}
+            animate={{ y: [0, 4, 0] }}
+            whileHover={{
+              y: -8,
+              scale: 1.015,
+            }}
+            className="group relative overflow-hidden rounded-[30px] border border-white/70 bg-white/65 p-7 shadow-[0_20px_60px_rgba(15,23,42,0.08)] backdrop-blur-xl md:p-9"
           >
-            <div className="flex items-start gap-5">
-              <div className="rounded-2xl bg-cyan-500/15 p-4">
-                <MapPin className="h-7 w-7 text-cyan-400" />
+
+            {/* Card glow */}
+            <div className="pointer-events-none absolute -left-20 -top-20 h-48 w-48 rounded-full bg-blue-300/20 blur-[70px]" />
+
+            <div className="relative z-10">
+
+              <div className="flex items-start gap-5">
+
+                <motion.div
+                  animate={{
+                    rotate: [0, -3, 3, 0],
+                    y: [0, 3, 0],
+                  }}
+                  transition={{
+                    duration: 4.5,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                  className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-blue-50 text-blue-600 shadow-sm"
+                >
+                  <LinkIcon className="h-7 w-7" />
+                </motion.div>
+
+                <div>
+                  <h3 className="text-xl font-bold text-slate-900">
+                    Connect With Founder
+                  </h3>
+
+                  <p className="mt-2 leading-7 text-slate-600">
+                    Want to share an idea or collaborate? Connect with the
+                    founder of The Next Chapter.
+                  </p>
+                </div>
+
               </div>
 
+              <motion.a
+                whileHover={{
+                  scale: 1.04,
+                  y: -2,
+                }}
+                whileTap={{ scale: 0.97 }}
+                href="https://linkedin.com/in/ansh-sharma-2754b4348"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-7 inline-flex items-center gap-2 rounded-full bg-blue-600 px-6 py-3 font-semibold text-white shadow-lg shadow-blue-200/60 transition hover:bg-blue-700"
+              >
+                Connect on LinkedIn
+                <ArrowUpRight className="h-4 w-4" />
+              </motion.a>
+
+            </div>
+          </motion.div>
+
+        </div>
+
+        {/* ================= CAMPUS ================= */}
+
+        <motion.div
+          initial={{ opacity: 0, y: 35 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, delay: 0.15 }}
+          whileHover={{ y: -5 }}
+          className="relative mt-6 overflow-hidden rounded-[30px] border border-white/70 bg-white/55 p-7 shadow-[0_20px_60px_rgba(15,23,42,0.07)] backdrop-blur-xl md:p-9"
+        >
+
+          {/* Campus glow */}
+          <motion.div
+            animate={{
+              x: [0, 40, 0],
+              scale: [1, 1.1, 1],
+            }}
+            transition={{
+              duration: 9,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="pointer-events-none absolute -right-20 top-0 h-64 w-64 rounded-full bg-purple-300/20 blur-[90px]"
+          />
+
+          <div className="relative z-10 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+
+            <div className="flex items-start gap-5">
+
+              <motion.div
+                animate={{
+                  y: [0, -4, 0],
+                }}
+                transition={{
+                  duration: 3.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-white/90 text-purple-600 shadow-md"
+              >
+                <MapPin className="h-7 w-7" />
+              </motion.div>
+
               <div>
-                <h3 className="text-2xl font-bold text-white">
-                  Visit Our Campus
+                <h3 className="text-xl font-bold text-slate-900">
+                  Our Campus
                 </h3>
 
-                <p className="mt-5 leading-8 text-slate-300">
+                <p className="mt-2 leading-7 text-slate-600">
                   Chandigarh Group of Colleges (CGC), Landran
                   <br />
                   Sector 112, Kharar–Banur Highway
                   <br />
                   Sahibzada Ajit Singh Nagar (Mohali)
                   <br />
-                  Punjab – 140307
+                  Punjab 140307
                 </p>
               </div>
+
             </div>
 
-            <div className="mt-10 rounded-2xl border border-cyan-500/20 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 p-6">
-              <h4 className="text-xl font-bold text-white">
-                Growing Every Day 🌱
-              </h4>
-
-              <p className="mt-3 leading-7 text-slate-300">
-                Every new member brings fresh ideas, new friendships,
-                and exciting opportunities. Join us today and help write
-                the next chapter of our community.
-              </p>
-            </div>
-          </motion.div>
-        </motion.div>
-
-        {/* Bottom CTA Banner */}
-        <motion.div
-          initial={{ opacity: 0, y: 60 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="mt-20 rounded-[32px] border border-white/10 bg-gradient-to-r from-cyan-500/10 via-slate-900/80 to-purple-500/10 p-10 backdrop-blur-2xl"
-        >
-          <div className="mx-auto max-w-4xl text-center">
-            <h3 className="text-4xl font-black text-white md:text-5xl">
-              Your Journey Starts{" "}
-              <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-                Today
-              </span>
-            </h3>
-
-            <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-slate-300">
-              Every successful journey begins with a single step. Join{" "}
-              <span className="font-semibold text-cyan-300">
-                The Next Chapter
-              </span>
-              , meet passionate students, learn together, build impactful
-              projects, and create unforgettable memories that will last
-              throughout your college life.
-            </p>
-
-            <motion.a
+            <motion.div
               whileHover={{
-                scale: 1.05,
+                scale: 1.04,
                 y: -3,
               }}
-              whileTap={{
-                scale: 0.96,
-              }}
-              href="https://chat.whatsapp.com/LrbdpXMaG3j67zSZUizjzI"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-10 inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-green-500 via-emerald-500 to-teal-500 px-8 py-4 text-lg font-bold text-white shadow-xl shadow-green-500/30"
+              className="rounded-2xl border border-white/80 bg-white/75 px-5 py-4 text-center shadow-md backdrop-blur-md"
             >
-              <MessageCircle className="h-6 w-6" />
-              Join WhatsApp Community
-            </motion.a>
+              <p className="text-sm font-semibold text-slate-400">
+                COMMUNITY
+              </p>
 
-            <p className="mt-8 text-sm tracking-wide text-slate-400">
-              Learn • Connect • Build • Grow Together 🚀
-            </p>
+              <p className="mt-1 font-bold text-slate-900">
+                CGC Landran Students
+              </p>
+            </motion.div>
+
           </div>
         </motion.div>
+
+        {/* ================= FINAL CTA ================= */}
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+          className="mt-16 text-center"
+        >
+
+          <motion.p
+            animate={{ opacity: [0.55, 1, 0.55] }}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+            }}
+            className="text-sm font-semibold uppercase tracking-[0.25em] text-slate-400"
+          >
+            Learn • Connect • Build • Grow
+          </motion.p>
+
+          <h3 className="mt-4 text-2xl font-bold text-slate-900 md:text-3xl">
+            Your next chapter starts with
+            <span className="ml-2 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              one connection.
+            </span>
+          </h3>
+
+          <p className="mx-auto mt-4 max-w-xl text-slate-600">
+            Come be a part of something bigger. Together, we learn,
+            support and grow.
+          </p>
+
+        </motion.div>
+
       </div>
     </section>
   );
